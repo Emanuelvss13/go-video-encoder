@@ -41,7 +41,7 @@ func (vr *VideoRepositoryDb) Find(id string) (*domain.Video, error) {
 
 	var video domain.Video
 
-	vr.Db.Find(&video, "id = ?", id)
+	vr.Db.Preload("Jobs").Find(&video, "id = ?", id)
 
 	if video.ID == "" {
 		return nil, errors.New("video not found")
