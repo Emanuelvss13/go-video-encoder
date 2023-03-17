@@ -32,5 +32,4 @@ func (v *Video) Validate() error {
 	}
 
 	return nil
-
 }
